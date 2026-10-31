@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DARK CASE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+```
+<header class="navbar">
+    <div class="logo">THE DARK <span>CASE</span></div>
+    <div class="nav-tag">DETECTIVE MYSTERY GAME</div>
+</header>
+
+<!-- HOME -->
+<main class="hero" id="homeScreen">
+
+    <div class="hero-content">
+        <p class="small-heading">A MYSTERY WAITING TO BE SOLVED</p>
+
+        <h1>EVERY CRIME<br>LEAVES A <span>CLUE.</span></h1>
+
+        <p class="hero-description">
+            Enter the world of mysteries, hidden secrets and dangerous truths.
+            Investigate crime scenes, collect evidence and discover the truth.
+        </p>
+
+        <div class="hero-buttons">
+            <button id="startGame" class="primary-btn">
+                START INVESTIGATION →
+            </button>
+
+            <button id="aboutGame" class="secondary-btn">
+                ABOUT GAME
+            </button>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <div class="image-text">
+            <span>CASE FILE #001</span>
+            <h2>THE UNKNOWN<br>VICTIM</h2>
+            <p>STATUS: UNSOLVED</p>
+        </div>
+    </div>
+
+</main>
+
+<!-- INVESTIGATION -->
+<section class="investigation-screen" id="investigationScreen">
+
+    <div class="case-header">
+        <button id="backButton" class="back-btn">← BACK TO HOME</button>
+        <span class="case-number">CASE FILE #001</span>
+    </div>
+
+    <div class="case-content">
+
+        <p class="small-heading">YOUR FIRST MISSION</p>
+        <h1>THE UNKNOWN <span>VICTIM</span></h1>
+
+        <p class="case-description">
+            A mysterious body was discovered inside an abandoned mansion
+            last night. No witnesses, no clear identity and several
+            suspicious objects were found nearby.
+        </p>
+
+        <div class="case-details">
+            <div class="detail-box">
+                <span>VICTIM</span>
+                <h3>UNKNOWN</h3>
+            </div>
+
+            <div class="detail-box">
+                <span>LOCATION</span>
+                <h3>ABANDONED MANSION</h3>
+            </div>
+
+            <div class="detail-box">
+                <span>STATUS</span>
+                <h3>UNSOLVED</h3>
+            </div>
+        </div>
+
+        <h2 class="investigation-heading">CHOOSE YOUR ACTION</h2>
+
+        <div class="investigation-options">
+
+            <button class="investigation-btn">
+                <span>01</span>
+                <div>
+                    <h3>Investigate Crime Scene</h3>
+                    <p>Search the location for hidden clues.</p>
+                </div>
+                <b>→</b>
+            </button>
+
+            <button class="investigation-btn">
+                <span>02</span>
+                <div>
+                    <h3>Examine Suspects</h3>
+                    <p>Discover people connected to the case.</p>
+                </div>
+                <b>→</b>
+            </button>
+
+            <button class="investigation-btn">
+                <span>03</span>
+                <div>
+                    <h3>View Case Evidence</h3>
+                    <p>Check the collected evidence.</p>
+                </div>
+                <b>→</b>
+            </button>
+
+            <button class="investigation-btn">
+                <span>04</span>
+                <div>
+                    <h3>Interrogate Witnesses</h3>
+                    <p>Question people who know something.</p>
+                </div>
+                <b>→</b>
+            </button>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- BOTTOM -->
+<section class="bottom-section" id="bottomSection">
+    <div class="info-box">
+        <h3>01</h3>
+        <p>INVESTIGATE</p>
+    </div>
+
+    <div class="info-box">
+        <h3>02</h3>
+        <p>COLLECT CLUES</p>
+    </div>
+
+    <div class="info-box">
+        <h3>03</h3>
+        <p>SOLVE THE MYSTERY</p>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<div class="modal" id="aboutModal">
+    <div class="modal-content">
+        <button class="close-btn" id="closeModal">×</button>
+
+        <p class="small-heading">WELCOME DETECTIVE</p>
+        <h2>ABOUT THE <span>GAME</span></h2>
+
+        <p>
+            THE DARK CASE is an interactive detective mystery game.
+            Explore crime scenes, examine suspects, collect evidence
+            and solve mysterious cases.
+        </p>
+
+        <button class="primary-btn" id="modalStart">
+            START PLAYING →
+        </button>
+    </div>
+</div>
+
+<!-- JAVASCRIPT INSIDE HTML -->
+<script>
+    const startButton = document.getElementById("startGame");
+    const aboutButton = document.getElementById("aboutGame");
+    const backButton = document.getElementById("backButton");
+    const modalStart = document.getElementById("modalStart");
+
+    const homeScreen = document.getElementById("homeScreen");
+    const bottomSection = document.getElementById("bottomSection");
+    const investigationScreen = document.getElementById("investigationScreen");
+    const aboutModal = document.getElementById("aboutModal");
+    const closeModal = document.getElementById("closeModal");
+
+    function startInvestigation() {
+        homeScreen.hidden = true;
+        bottomSection.hidden = true;
+        aboutModal.classList.remove("active");
+
+        investigationScreen.hidden = false;
+        investigationScreen.classList.add("active");
+
+        window.scrollTo(0, 0);
+    }
+
+    startButton.addEventListener("click", startInvestigation);
+    modalStart.addEventListener("click", startInvestigation);
+
+    backButton.addEventListener("click", function () {
+        investigationScreen.classList.remove("active");
+        investigationScreen.hidden = true;
+
+        homeScreen.hidden = false;
+        bottomSection.hidden = false;
+
+        window.scrollTo(0, 0);
+    });
+
+    aboutButton.addEventListener("click", function () {
+        aboutModal.classList.add("active");
+    });
+
+    closeModal.addEventListener("click", function () {
+        aboutModal.classList.remove("active");
+    });
+
+    aboutModal.addEventListener("click", function (event) {
+        if (event.target === aboutModal) {
+            aboutModal.classList.remove("active");
+        }
+    });
+</script>
+```
+
+</body>
+</html>
